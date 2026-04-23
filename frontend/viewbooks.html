@@ -1,0 +1,16 @@
+<h2>Books</h2>
+<ul id="list"></ul>
+
+<script>
+fetch("http://YOUR_IP:3000/books")
+.then(res=>res.json())
+.then(data=>{
+  let list = document.getElementById("list");
+  data.forEach(book=>{
+    let li = document.createElement("li");
+    li.innerText = book.title + " - " + book.author;
+    list.appendChild(li);
+  });
+});
+</script>
+

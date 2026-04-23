@@ -1,0 +1,20 @@
+<h2>Add Book</h2>
+<input id="title" placeholder="Title"><br>
+<input id="author" placeholder="Author"><br>
+<input id="quantity" placeholder="Quantity"><br>
+
+<button onclick="addBook()">Add</button>
+
+<script>
+function addBook(){
+  fetch("http://YOUR_IP:3000/add-book", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      title: document.getElementById("title").value,
+      author: document.getElementById("author").value,
+      quantity: document.getElementById("quantity").value
+    })
+  }).then(res=>alert("Added"));
+}
+</script>
